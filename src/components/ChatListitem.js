@@ -18,7 +18,7 @@ function ChatListItem () {
                 </div>
                 <div className="chatListItem--line">
                     <div className="chatListItem--lastMsg">
-                        <p>hey, sup</p>
+                        <p>hey, supBonieky Lacerda sei que não é a intenção mas o firebase se torna cara a partir de quantos acessos?Boni</p>
                     </div>
                 </div>
 

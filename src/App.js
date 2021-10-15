@@ -5,17 +5,23 @@ import ChatIcon from '@material-ui/icons/Chat';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SearchIcon from '@material-ui/icons/Search';
 import ChatListItem from './components/ChatListitem';
-
+import ChatIntro from './components/ChatIntro'
+import ChatWindow from "./components/ChatWindow";
 
 function App() {
 
-  const [chatlist, setChatList] = useState([{}, {}, {}, {}]);
+  const [chatlist, setChatList] = useState([{}, {}, {}, {},  {},  {},  {} ,  {},  {} , {}]);
+
+  const [activeChat, setActiveChat] = useState({});
 
   return(
 
     <div className="app-window">
+
+      {/* Beginning of sidebar */}
       <div className="sidebar">
       
+      {/* Beginning of header */}
       <header>
         <img className="header--avatar" src="https://i.pinimg.com/736x/89/90/48/899048ab0cc455154006fdb9676964b3.jpg" alt=""></img>
 
@@ -37,6 +43,8 @@ function App() {
 
       </header>
 
+    {/* End of header  */}
+
       <div className="search">
         <div className="search--input">
 
@@ -52,6 +60,7 @@ function App() {
 
           <ChatListItem
             key={key}
+            onClick={()=>setActiveChat(chatlist[key])}
           />
         ))}
 
@@ -59,9 +68,22 @@ function App() {
 
       </div>
 
+          {/* Beginning of contentarea */}
+
       <div className="contentarea">
-        content
+        
+          {activeChat.chatId !== undefined &&
+            <ChatWindow/>
+          }
+
+          {activeChat.chatId === undefined &&
+          
+          <ChatIntro/>
+          }
+
       </div>
+
+          {/* End of contentarea */}
 
     </div>
   );
